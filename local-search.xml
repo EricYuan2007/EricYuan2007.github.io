@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>数论1</title>
+    <link href="/2021/04/04/%E6%95%B0%E8%AE%BA1/"/>
+    <url>/2021/04/04/%E6%95%B0%E8%AE%BA1/</url>
+    
+    <content type="html"><![CDATA[<h1 id="数论1"><a href="#数论1" class="headerlink" title="数论1"></a>数论1</h1><blockquote><p>It may be updated a few days later.</p></blockquote><h2 id="试除法判定质数"><a href="#试除法判定质数" class="headerlink" title="试除法判定质数"></a>试除法判定质数</h2><h3 id="算法目标"><a href="#算法目标" class="headerlink" title="算法目标"></a>算法目标</h3><p>给定任意一个整数$N$，判断$N$是否为质数。</p><h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><p>任意一个质数$N$都只能被$1$和$N$整除，因此只应枚举$2$~$N-1$中的所有数，只要其中有一个不符合，便可判定$N$不是质数。</p><p>接下来在对上述思路优化，先来看个例子：</p><script type="math/tex; mode=display">\begin{align}30 & = 2 \times 15 \\    & = 3 \times 10 \\   & = 5 \times 6\end{align}</script><p>通过这个例子我们可以发现一个数的因数成对出现，即 <code>2，3，5</code> 均小于$\sqrt{30}$， <code>15，10，6</code> 均大于$\sqrt{30}$，因此只要$2$~$\sqrt{N}$中无$N$的因数，$N$就是一个质数。</p><h3 id="算法模板"><a href="#算法模板" class="headerlink" title="算法模板"></a>算法模板</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">is_prime</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (x &lt; <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt;= x / i; i ++ )<br>        <span class="hljs-keyword">if</span> (x % i == <span class="hljs-number">0</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>- [1] <a href="https://www.acwing.com/blog/content/406/">AcWing常用代码模板4——数学知识</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数学知识</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数论</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
