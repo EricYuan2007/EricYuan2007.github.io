@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      405 字
+      400 字
     </span>
   
 
@@ -237,7 +237,7 @@
             
             <div class="markdown-body">
               <h1 id="数论1"><a href="#数论1" class="headerlink" title="数论1"></a>数论1</h1><blockquote>
-<p>It may be updated a few days later.</p>
+<p>未完待续</p>
 </blockquote>
 <h2 id="试除法判定质数"><a href="#试除法判定质数" class="headerlink" title="试除法判定质数"></a>试除法判定质数</h2><h3 id="算法目标"><a href="#算法目标" class="headerlink" title="算法目标"></a>算法目标</h3><p>给定任意一个整数$N$，判断$N$是否为质数。</p>
 <h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><p>任意一个质数$N$都只能被$1$和$N$整除，因此只应枚举$2$~$N-1$中的所有数，只要其中有一个不符合，便可判定$N$不是质数。</p>
@@ -252,8 +252,8 @@
 <h2 id="试除法分解质因数"><a href="#试除法分解质因数" class="headerlink" title="试除法分解质因数"></a>试除法分解质因数</h2><h3 id="算法目标-1"><a href="#算法目标-1" class="headerlink" title="算法目标"></a>算法目标</h3><p>给定任意一个整数$N$，将$N$从小到大分解质因数。</p>
 <h3 id="算法思路-1"><a href="#算法思路-1" class="headerlink" title="算法思路"></a>算法思路</h3><p>从小到大枚举$N$的所有最小质因子，对于特大的质因子，可采用试除法判定质数的思路进行优化，即只要枚举$2$~$\sqrt{N}$中所有$N$的因数，如果最后 $N&gt;0$，即$N$是质数。</p>
 <h3 id="算法模板-1"><a href="#算法模板-1" class="headerlink" title="算法模板"></a>算法模板</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">divide</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt;= x / i; i ++ )<br>        <span class="hljs-keyword">if</span> (x % i == <span class="hljs-number">0</span>)<br>        &#123;<br>            <span class="hljs-keyword">int</span> s = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">while</span> (x % i == <span class="hljs-number">0</span>) x /= i, s ++ ;<br>            cout &lt;&lt; i &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span> &lt;&lt; s &lt;&lt; endl;<br>        &#125;<br>    <span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">1</span>) cout &lt;&lt; x &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span> &lt;&lt; <span class="hljs-number">1</span> &lt;&lt; endl;<br>    cout &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>- [1] <a target="_blank" rel="noopener" href="https://www.acwing.com/blog/content/406/">AcWing常用代码模板4——数学知识</a></p>
-
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.acwing.com/blog/content/406/">AcWing常用代码模板4——数学知识</a>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
             </div>
             <hr>
             <div>
@@ -278,7 +278,7 @@
               
                 <p class="note note-warning">
                   
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！如有侵权，联系删除。
                   
                 </p>
               
