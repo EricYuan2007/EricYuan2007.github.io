@@ -182,61 +182,6 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/04/25/%E5%88%9D%E7%AD%89%E6%95%B0%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">初等数论学习笔记（一）的学习笔记</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/04/25/%E5%88%9D%E7%AD%89%E6%95%B0%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-          
-          
-            
-          
-          初等数论学习笔记（一）的学习笔记
-本章将以知乎 @sola 的初等数论学习笔记（一）[1]为基础对部分基础数论做更详细的证明与解释，用以补充算法数论章节，侵删
-先挖个坑，有空再写~
-
-参考资料初等数论学习笔记（一
- ↩
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-25 22:19" pubdate>
-              2021-04-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/">数学知识</a>
-            
-              <a href="/categories/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/%E5%88%9D%E7%AD%89%E6%95%B0%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">初等数论学习笔记的学习笔记</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%95%B0%E8%AE%BA/">数论</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
         <a href="/2021/04/22/%E9%A2%98%E8%A7%A3%20CF14A%20Letter/">题解 CF14A Letter</a>
       </h1>
 
@@ -364,14 +309,11 @@ AC代码12345678910
           数论1
 未完待续
 
-试除法判定质数算法目标给定任意一个整数$N$，判断$N$是否为质数。
-算法思路任意一个质数$N$都只能被$1$和$N$整除，因此只应枚举$2$~$N-1$中的所有数，只要其中有一个不符合，便可判定$N$不是质数。
-接下来在对上述思路优化，先来看个例子：
-
-\begin{align}
-30 & = 2 \times 15 \\ 
-   & = 3 \times 10 \\
-   
+涉及知识关于质数（素数）素数的性质[2]：
+1、一个大于1的正整数的大于1的最小因子为素数。
+这条性质看上去十分简单，然而在之后构造素数进行证明时十分常用。
+2、若 $n$ 为合数，$d$ 为其大于1的最小因子，则  $d \leq \sqrt{n}$  。（注意到 $\frac{n}{d}$ 为小于 $n$ 的最大因子)
+试除法判定质数算法目标给定任意一个整数$N$，判断$N
         </a>
       </p>
 
