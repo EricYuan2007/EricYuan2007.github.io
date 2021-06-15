@@ -4,6 +4,64 @@
   
   
   <entry>
+    <title>题解 2019 CCF CSP-J 公交换乘</title>
+    <link href="/2021/06/15/%E9%A2%98%E8%A7%A3%202019%20CCF%20CSP-J%20%E5%85%AC%E4%BA%A4%E6%8D%A2%E4%B9%98/"/>
+    <url>/2021/06/15/%E9%A2%98%E8%A7%A3%202019%20CCF%20CSP-J%20%E5%85%AC%E4%BA%A4%E6%8D%A2%E4%B9%98/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="题解-2019-CCF-CSP-J-公交换乘"><a href="#题解-2019-CCF-CSP-J-公交换乘" class="headerlink" title="题解 2019 CCF CSP-J 公交换乘"></a>题解 2019 CCF CSP-J 公交换乘</h1><h2 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h2><ol><li><a href="https://www.luogu.com.cn/problem/P5661">洛谷</a></li><li><a href="https://www.acwing.com/problem/content/description/1162/">AcWing</a></li></ol><h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><p>开一个 <code>队列</code> ，存入当前可用的优惠券，同时开 <code>bool</code> 数组对使用过的优惠券进行标记，接下来便可暴力枚举</p><h2 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">100010</span>;<br><br><span class="hljs-keyword">int</span> n;<br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Coupon</span></span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-keyword">int</span> p, t;<br>&#125;q[N];<br><span class="hljs-keyword">bool</span> st[N];<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>    <span class="hljs-keyword">int</span> hh = <span class="hljs-number">0</span>, tt = <span class="hljs-number">-1</span>;<br><br>    <span class="hljs-keyword">int</span> res = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (n -- )<br>    &#123;<br>        <span class="hljs-keyword">int</span> a, b, c;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d&quot;</span>, &amp;a, &amp;b, &amp;c);<br>        <span class="hljs-keyword">if</span> (!a) res += b, q[ ++ tt] = &#123;b, c&#125;;<br>        <span class="hljs-keyword">else</span><br>        &#123;<br>            <span class="hljs-keyword">while</span> (hh &lt;= tt &amp;&amp; q[hh].t &lt; c - <span class="hljs-number">45</span>) hh ++ ;  <span class="hljs-comment">// 删除过期优惠券</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = hh; i &lt;= tt; i ++ )<br>                <span class="hljs-keyword">if</span> (!st[i] &amp;&amp; q[i].p &gt;= b)<br>                &#123;<br>                    st[i] = <span class="hljs-literal">true</span>;<br>                    b = <span class="hljs-number">0</span>;<br>                    <span class="hljs-keyword">break</span>;<br>                &#125;<br>            res += b;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, res);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模拟</tag>
+      
+      <tag>普及-</tag>
+      
+      <tag>队列</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>题解 NOIP2006普及组 明明的随机数</title>
+    <link href="/2021/06/15/%E9%A2%98%E8%A7%A3%20NOIP2006%E6%99%AE%E5%8F%8A%E7%BB%84%20%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/"/>
+    <url>/2021/06/15/%E9%A2%98%E8%A7%A3%20NOIP2006%E6%99%AE%E5%8F%8A%E7%BB%84%20%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="题解-NOIP2006普及组-明明的随机数"><a href="#题解-NOIP2006普及组-明明的随机数" class="headerlink" title="题解 NOIP2006普及组 明明的随机数"></a>题解 NOIP2006普及组 明明的随机数</h1><h2 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h2><ol><li><a href="https://www.luogu.com.cn/problem/P1059">洛谷</a></li><li><a href="https://www.acwing.com/problem/content/description/427/">AcWing</a></li></ol><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h3><p>使用 <code>set</code> 模板直接实现去重排序，使用迭代器进行排序</p><h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;set&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br>set&lt;<span class="hljs-keyword">int</span>&gt; num;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> n;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>    <span class="hljs-keyword">while</span> (n -- )<br>    &#123;<br>        <span class="hljs-keyword">int</span> t;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;t);<br>        num.<span class="hljs-built_in">insert</span>(t);<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%ld\n&quot;</span>, num.<span class="hljs-built_in">size</span>());<br>    <span class="hljs-keyword">for</span> (set&lt;<span class="hljs-keyword">int</span>&gt;::iterator it = num.<span class="hljs-built_in">begin</span>(); it != num.<span class="hljs-built_in">end</span>(); it ++ ) cout &lt;&lt; *it &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="思路分析-1"><a href="#思路分析-1" class="headerlink" title="思路分析"></a>思路分析</h3><p>使用 <code>sort()</code> 和 <code>unique()</code> ，分别实现排序和去重 </p><h3 id="AC代码-1"><a href="#AC代码-1" class="headerlink" title="AC代码"></a>AC代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">110</span>;<br><span class="hljs-keyword">int</span> q[N];<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> n;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i ++ ) cin &gt;&gt; q[i];<br>    <span class="hljs-built_in">sort</span>(q, q + n);<br>    <span class="hljs-keyword">int</span> k = <span class="hljs-built_in">unique</span>(q, q + n) - q;<br>    cout &lt;&lt; k &lt;&lt; endl;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; k; i ++ ) cout &lt;&lt; q[i] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h2><h3 id="思路分析-2"><a href="#思路分析-2" class="headerlink" title="思路分析"></a>思路分析</h3><p>此题数据范围较小，可采用 <code>桶排序</code> </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>入门</tag>
+      
+      <tag>排序</tag>
+      
+      <tag>STL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>题解 NOIP2017普及组 成绩</title>
     <link href="/2021/06/02/%E9%A2%98%E8%A7%A3%20NOIP2017%E6%99%AE%E5%8F%8A%E7%BB%84%20%E6%88%90%E7%BB%A9/"/>
     <url>/2021/06/02/%E9%A2%98%E8%A7%A3%20NOIP2017%E6%99%AE%E5%8F%8A%E7%BB%84%20%E6%88%90%E7%BB%A9/</url>
@@ -50,6 +108,8 @@
       <tag>模拟</tag>
       
       <tag>普及-</tag>
+      
+      <tag>STL</tag>
       
       <tag>堆</tag>
       
