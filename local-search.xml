@@ -4,7 +4,7 @@
   
   
   <entry>
-    <title>趣题的集合</title>
+    <title>算法技巧与模板的集合</title>
     <link href="/2021/06/29/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%9A%84%E9%9B%86%E5%90%88/"/>
     <url>/2021/06/29/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%9A%84%E9%9B%86%E5%90%88/</url>
     
@@ -77,9 +77,9 @@
       
       <tag>入门</tag>
       
-      <tag>STL</tag>
-      
       <tag>排序</tag>
+      
+      <tag>STL</tag>
       
     </tags>
     
@@ -135,9 +135,9 @@
       
       <tag>普及-</tag>
       
-      <tag>堆</tag>
-      
       <tag>STL</tag>
+      
+      <tag>堆</tag>
       
     </tags>
     
