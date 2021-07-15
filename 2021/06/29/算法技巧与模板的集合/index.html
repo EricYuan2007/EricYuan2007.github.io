@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.2k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      25
+      28
        分钟
     </span>
   
@@ -244,7 +244,11 @@
 <p>挖个大坑，持续更新~</p>
 <p>update on 2021/7/12</p>
 </blockquote>
-<h1 id="重点语法"><a href="#重点语法" class="headerlink" title="重点语法"></a>重点语法</h1><h2 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h2><h3 id="迭代器遍历（适用于不支持随机访问的容器）"><a href="#迭代器遍历（适用于不支持随机访问的容器）" class="headerlink" title="迭代器遍历（适用于不支持随机访问的容器）"></a>迭代器遍历（适用于不支持随机访问的容器）</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// e.g.</span><br><span class="hljs-keyword">for</span> (set&lt;<span class="hljs-keyword">int</span>&gt;::iterator it = num.<span class="hljs-built_in">begin</span>(); it != num.<span class="hljs-built_in">end</span>(); it ++ ) cout &lt;&lt; *it &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br></code></pre></td></tr></table></figure>
+<h1 id="重点语法"><a href="#重点语法" class="headerlink" title="重点语法"></a>重点语法</h1><h2 id="常用头文件"><a href="#常用头文件" class="headerlink" title="常用头文件"></a>常用头文件</h2><blockquote>
+<p>个人不推荐使用 <code>#include &lt;bits/stdc++.h&gt;</code> ，因为这样会造成奇奇怪怪的变量错误，例如 <code>cmath</code> 库中定义了 <code>y1</code> ，<code>y2</code> 的变量名</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span><br></code></pre></td></tr></table></figure>
+<h2 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h2><h3 id="迭代器遍历（适用于不支持随机访问的容器）"><a href="#迭代器遍历（适用于不支持随机访问的容器）" class="headerlink" title="迭代器遍历（适用于不支持随机访问的容器）"></a>迭代器遍历（适用于不支持随机访问的容器）</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// e.g.</span><br><span class="hljs-keyword">for</span> (set&lt;<span class="hljs-keyword">int</span>&gt;::iterator it = num.<span class="hljs-built_in">begin</span>(); it != num.<span class="hljs-built_in">end</span>(); it ++ ) cout &lt;&lt; *it &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br></code></pre></td></tr></table></figure>
 <h1 id="非算法技巧"><a href="#非算法技巧" class="headerlink" title="非算法技巧"></a>非算法技巧</h1><h2 id="顺序读取正整数的每一位"><a href="#顺序读取正整数的每一位" class="headerlink" title="顺序读取正整数的每一位"></a>顺序读取正整数的每一位</h2><h3 id="Method-1-逐位计算"><a href="#Method-1-逐位计算" class="headerlink" title="Method 1 逐位计算"></a>Method 1 逐位计算</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">rln</span><span class="hljs-params">(<span class="hljs-keyword">int</span> &amp;x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> t = x % <span class="hljs-number">10</span>;<br>    x /= <span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">return</span> t;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="Method-2-转字符串处理"><a href="#Method-2-转字符串处理" class="headerlink" title="Method 2 转字符串处理"></a>Method 2 转字符串处理</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// x存为string</span><br><span class="hljs-comment">// i表示x从右向左的第i位</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">rln</span><span class="hljs-params">(string x, <span class="hljs-keyword">int</span> i)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> x[x.<span class="hljs-built_in">size</span>() - i] - <span class="hljs-string">&#x27;0&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="坐标数组"><a href="#坐标数组" class="headerlink" title="坐标数组"></a>坐标数组</h2><h3 id="Step-1-定义"><a href="#Step-1-定义" class="headerlink" title="Step 1 定义"></a>Step 1 定义</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> dx[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>&#125;, dy[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>&#125;;<br></code></pre></td></tr></table></figure>
@@ -280,11 +284,19 @@
 ">[4]</span></a></sup>的代码</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// e.g.</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> pb push_back</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> mp make_pair</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> fi first</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> se second</span><br></code></pre></td></tr></table></figure>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><h2 id="编译器"><a href="#编译器" class="headerlink" title="编译器"></a>编译器</h2><p>| 软件及版本<sup id="fnref:5" class="footnote-ref"><a href="#fn:5" rel="footnote"><span class="hint--top hint--rounded" aria-label="摘自 NOI系列活动标准竞赛环境(2016年11月08日更新)
+">[5]</span></a></sup> |         命令         | C++ 特性 |<br>| :——————: | :—————————: | ———— |<br>|   G++ 4.8.4    | g++ test.cpp -o test | C++ 98   |</p>
+<blockquote>
+<p>由于不支持 <code>C++11</code> 的特性，所以不能使用 <code>to_string</code> ， <code>stoi</code>  ， <code>stol</code> ， <code>auto</code> ， <code>unordered_map</code> ， <code>unordered_set</code>， <code>&#123;(pair)&#125;</code> ， 范围遍历等函数与模块<sup id="fnref:6" class="footnote-ref"><a href="#fn:6" rel="footnote"><span class="hint--top hint--rounded" aria-label="摘自 蓝桥杯支持c++11么 - AcWing
+">[6]</span></a></sup></p>
+</blockquote>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>来自 <a target="_blank" rel="noopener" href="https://www.acwing.com/activity/content/introduction/11/">AcWing算法基础课</a>
 <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://oi-wiki.org/">OI Wiki</a> / <a target="_blank" rel="noopener" href="https://github.com/OI-wiki/OI-wiki/">Github Repository</a>
 <a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span>《算法竞赛进阶指南》 李煜东著  2018年1月第1版  2020年8月第6次印刷
 <a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.acwing.com/user/myspace/index/5751/">dalao的主页</a>
-<a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:5" class="footnote-text"><span>摘自 <a target="_blank" rel="noopener" href="https://www.noi.cn/gynoi/jsgz/2018-08-13/710465.shtml">NOI系列活动标准竞赛环境(2016年11月08日更新)</a>
+<a href="#fnref:5" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:6" class="footnote-text"><span>摘自 <a target="_blank" rel="noopener" href="https://www.acwing.com/community/content/49963/">蓝桥杯支持c++11么 - AcWing</a>
+<a href="#fnref:6" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
             </div>
             <hr>
             <div>
