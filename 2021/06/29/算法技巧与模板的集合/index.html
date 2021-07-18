@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.6k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      30
+      38
        分钟
     </span>
   
@@ -242,12 +242,102 @@
 ">[2]</span></a></sup>，《算法竞赛进阶指南》<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="《算法竞赛进阶指南》 李煜东著  2018年1月第1版  2020年8月第6次印刷
 ">[3]</span></a></sup>等资料上的算法模板为基础，整理OI竞赛常用的算法技巧与模板（不给出思路与推导）</p>
 <p>挖个大坑，持续更新~</p>
-<p>update on 2021/7/17</p>
+<p>update on 2021/7/18</p>
 </blockquote>
 <h1 id="重点语法"><a href="#重点语法" class="headerlink" title="重点语法"></a>重点语法</h1><h2 id="常用头文件"><a href="#常用头文件" class="headerlink" title="常用头文件"></a>常用头文件</h2><blockquote>
 <p>个人不推荐使用 <code>#include &lt;bits/stdc++.h&gt;</code> ，因为这样会造成奇奇怪怪的变量错误，例如 <code>cmath</code> 库中定义了 <code>y1</code> ，<code>y2</code> 的变量名</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span><br></code></pre></td></tr></table></figure>
+<h2 id="常用数据类型"><a href="#常用数据类型" class="headerlink" title="常用数据类型"></a>常用数据类型</h2><blockquote>
+<p>主要介绍常用数据类型所占的字节大小与取值范围<sup id="fnref:8" class="footnote-ref"><a href="#fn:8" rel="footnote"><span class="hint--top hint--rounded" aria-label="摘自 C/C++中基本数据类型所占内存大小_ZMyths的博客
+">[8]</span></a></sup></p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">32位</th>
+<th style="text-align:center">64位</th>
+<th style="text-align:center">取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">-128~127</td>
+</tr>
+<tr>
+<td style="text-align:center">unsigned char</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0~255</td>
+</tr>
+<tr>
+<td style="text-align:center">short int / short</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">–32,768~32,767</td>
+</tr>
+<tr>
+<td style="text-align:center">unsigned short</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0~65,535</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">-2,147,483,648~2,147,483,647</td>
+</tr>
+<tr>
+<td style="text-align:center">unsigned int</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0~4,294,967,295</td>
+</tr>
+<tr>
+<td style="text-align:center">long int / long</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">–2,147,483,648~2,147,483,647</td>
+</tr>
+<tr>
+<td style="text-align:center">unsigned long</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">0~4,294,967,295</td>
+</tr>
+<tr>
+<td style="text-align:center">long long int / long long</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">-9,223,372,036,854,775,808~9,223,372,036,854,775,807</td>
+</tr>
+<tr>
+<td style="text-align:center">指针</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">3.4E +/- 38 (7 digits)</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">1.7E +/- 308 (15 digits)</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h2 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h2><h3 id="迭代器遍历（适用于不支持随机访问的容器）"><a href="#迭代器遍历（适用于不支持随机访问的容器）" class="headerlink" title="迭代器遍历（适用于不支持随机访问的容器）"></a>迭代器遍历（适用于不支持随机访问的容器）</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// e.g.</span><br><span class="hljs-keyword">for</span> (set&lt;<span class="hljs-keyword">int</span>&gt;::iterator it = num.<span class="hljs-built_in">begin</span>(); it != num.<span class="hljs-built_in">end</span>(); it ++ ) cout &lt;&lt; *it &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br></code></pre></td></tr></table></figure>
 <h1 id="非算法技巧"><a href="#非算法技巧" class="headerlink" title="非算法技巧"></a>非算法技巧</h1><h2 id="顺序读取正整数的每一位"><a href="#顺序读取正整数的每一位" class="headerlink" title="顺序读取正整数的每一位"></a>顺序读取正整数的每一位</h2><h3 id="Method-1-逐位计算"><a href="#Method-1-逐位计算" class="headerlink" title="Method 1 逐位计算"></a>Method 1 逐位计算</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">rln</span><span class="hljs-params">(<span class="hljs-keyword">int</span> &amp;x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> t = x % <span class="hljs-number">10</span>;<br>    x /= <span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">return</span> t;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="Method-2-转字符串处理"><a href="#Method-2-转字符串处理" class="headerlink" title="Method 2 转字符串处理"></a>Method 2 转字符串处理</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// x存为string</span><br><span class="hljs-comment">// i表示x从右向左的第i位</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">rln</span><span class="hljs-params">(string x, <span class="hljs-keyword">int</span> i)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> x[x.<span class="hljs-built_in">size</span>() - i] - <span class="hljs-string">&#x27;0&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -303,11 +393,28 @@
 </table>
 </div>
 <blockquote>
-<p>由于不支持 <code>C++11</code> 的特性<sup id="fnref:5" class="footnote-ref"><a href="#fn:5" rel="footnote"><span class="hint--top hint--rounded" aria-label="上表摘自 NOI系列活动标准竞赛环境(2016年11月08日更新)
+<p>由于不支持 <code>C++ 11</code> 的特性<sup id="fnref:5" class="footnote-ref"><a href="#fn:5" rel="footnote"><span class="hint--top hint--rounded" aria-label="上表摘自 NOI系列活动标准竞赛环境(2016年11月08日更新)
 ">[5]</span></a></sup>，所以不能使用 <code>to_string</code> ， <code>stoi</code>  ， <code>stol</code> ， <code>auto</code> ， <code>unordered_map</code> ， <code>unordered_set</code>， <code>&#123;(pair)&#125;</code> ， 范围遍历等函数与模块<sup id="fnref:6" class="footnote-ref"><a href="#fn:6" rel="footnote"><span class="hint--top hint--rounded" aria-label="摘自 蓝桥杯支持c++11么 - AcWing
 ">[6]</span></a></sup></p>
+<hr>
+<p>update on 2021/7/18</p>
+<p>NOI Linux 2.0 发布了，编译器默认支持 <code>C++ 11 / C++ 14</code> ，所以万一上面能用了呢 : |</p>
+<p>但若加上 <code>-std=c++98</code> 就。。。</p>
 </blockquote>
-<h2 id="竞赛空间复杂度"><a href="#竞赛空间复杂度" class="headerlink" title="竞赛空间复杂度"></a>竞赛空间复杂度</h2><p>待更</p>
+<h2 id="竞赛空间复杂度"><a href="#竞赛空间复杂度" class="headerlink" title="竞赛空间复杂度"></a>竞赛空间复杂度</h2><blockquote>
+<p>比赛其实一般不会爆内存（可能？</p>
+</blockquote>
+<p>一般 $128.00MB$ ，大约可开 $2.5 \times 10^7$ 的 <code>int</code> 数组（可能？，<strong>注意</strong>：<strong>递归</strong>也需要<strong>空间</strong>。</p>
+<p>换算表参考如下：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+1 Byte &= 8 bit \\
+1 KB &= 1024 Byte \\
+1 MB &= 1024 KB = 1024^2 Byte \\
+1 GB &= 1024 MB = 1024^2 KB = 1024^3 Byte
+\end{align}</script><p>代码计算如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// e.g.</span><br>cout &lt;&lt; (<span class="hljs-keyword">sizeof</span> arr1 + <span class="hljs-keyword">sizeof</span> arr2) / <span class="hljs-number">1024</span> / <span class="hljs-number">1024</span>&lt;&lt; <span class="hljs-string">&quot;MB&quot;</span> &lt;&lt; endl;<br></code></pre></td></tr></table></figure>
+<p>常用数据类型所占的字节大小<a target="_blank" rel="noopener" href="https://ericyuan2007.github.io/2021/06/29/算法技巧与模板的集合/#常用数据类型">见上</a></p>
 <h2 id="竞赛时间复杂度"><a href="#竞赛时间复杂度" class="headerlink" title="竞赛时间复杂度"></a>竞赛时间复杂度</h2><div class="table-container">
 <table>
 <thead>
@@ -335,7 +442,8 @@
 <a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:5" class="footnote-text"><span>上表摘自 <a target="_blank" rel="noopener" href="https://www.noi.cn/gynoi/jsgz/2018-08-13/710465.shtml">NOI系列活动标准竞赛环境(2016年11月08日更新)</a>
 <a href="#fnref:5" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:6" class="footnote-text"><span>摘自 <a target="_blank" rel="noopener" href="https://www.acwing.com/community/content/49963/">蓝桥杯支持c++11么 - AcWing</a>
 <a href="#fnref:6" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:7" class="footnote-text"><span>参考 <a target="_blank" rel="noopener" href="https://www.acwing.com/blog/content/32/">由数据范围反推算法复杂度以及算法内容 - AcWing</a>
-<a href="#fnref:7" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<a href="#fnref:7" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:8" class="footnote-text"><span>摘自 <a target="_blank" rel="noopener" href="https://blog.csdn.net/zcyzsy/article/details/77935651">C/C++中基本数据类型所占内存大小_ZMyths的博客</a>
+<a href="#fnref:8" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
             </div>
             <hr>
             <div>
