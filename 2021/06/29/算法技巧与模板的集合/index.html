@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.4k 字
+      3.5k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      85
+      89
        分钟
     </span>
   
@@ -242,7 +242,7 @@
 ">[2]</span></a></sup>，《算法竞赛进阶指南》<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="《算法竞赛进阶指南》 李煜东著  2018年1月第1版  2020年8月第6次印刷
 ">[3]</span></a></sup>等资料上的算法模板为基础，整理OI竞赛常用的算法技巧与模板（不给出思路与推导）</p>
 <p>挖个大坑，持续更新~</p>
-<p>update on 2021/8/3</p>
+<p>update on 2021/8/4</p>
 </blockquote>
 <h1 id="重点语法"><a href="#重点语法" class="headerlink" title="重点语法"></a>重点语法</h1><h2 id="常用头文件"><a href="#常用头文件" class="headerlink" title="常用头文件"></a>常用头文件</h2><blockquote>
 <p>个人不推荐使用 <code>#include &lt;bits/stdc++.h&gt;</code> ，因为这样会造成奇奇怪怪的变量错误，例如 <code>cmath</code> 库中定义了 <code>y1</code> ，<code>y2</code> 的变量名</p>
@@ -413,17 +413,26 @@
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">div</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt; &amp;x, <span class="hljs-keyword">int</span> y, <span class="hljs-keyword">int</span> &amp;r)</span></span><br><span class="hljs-function"></span>&#123;<br>    vector&lt;<span class="hljs-keyword">int</span>&gt; res;<br>    r = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = x.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i -- )<br>    &#123;<br>        r = r * <span class="hljs-number">10</span> + x[i];<br>        res.<span class="hljs-built_in">push_back</span>(r / y);<br>        r %= y;<br>    &#125;<br>    <span class="hljs-built_in">reverse</span>(res.<span class="hljs-built_in">begin</span>(), res.<span class="hljs-built_in">end</span>());<br>    <span class="hljs-keyword">while</span> (res.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">1</span> &amp;&amp; res.<span class="hljs-built_in">back</span>() == <span class="hljs-number">0</span>) res.<span class="hljs-built_in">pop_back</span>();<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h2><h3 id="Case-1-一维前缀和"><a href="#Case-1-一维前缀和" class="headerlink" title="Case 1 一维前缀和"></a>Case 1 一维前缀和</h3><blockquote>
-<p>公式：</p>
+<p>递推式：</p>
 <script type="math/tex; mode=display">
 \begin{align}
-S[i] &= \sum_{j=1}^{i}{A[j]} \\
-sum(l, r) &= \sum_{i = l}^{r}{A[i]} = S[r] - S[l - 1]
+&S[i] = \sum_{j=1}^{i}{A[j]} \\
+&sum(l, r) = \sum_{i = l}^{r}{A[i]} = S[r] - S[l - 1]
 \end{align}</script></blockquote>
 <h4 id="Step-1-初始化-1"><a href="#Step-1-初始化-1" class="headerlink" title="Step 1 初始化"></a>Step 1 初始化</h4><blockquote>
 <p><code>a[]</code> 表示原数组， <code>n</code> 表示有效数组大小， <code>s[]</code> 表示前缀和数组</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ ) s[i] = s[i - <span class="hljs-number">1</span>] + a[i];<br></code></pre></td></tr></table></figure>
 <h4 id="Step-2-区间计算"><a href="#Step-2-区间计算" class="headerlink" title="Step 2 区间计算"></a>Step 2 区间计算</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s[], <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> s[r] - s[l - <span class="hljs-number">1</span>];<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Case-2-二维前缀和"><a href="#Case-2-二维前缀和" class="headerlink" title="Case 2 二维前缀和"></a>Case 2 二维前缀和</h3><blockquote>
+<p>递推式：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+&S[i,j] = \sum_{x = 1}^{i}{\sum_{y = 1}^{j}{A[x, y]}} = S[i-1, j] + S[i, j - 1] - S[i - 1, j - 1] + A[i, j] \\ 
+&\sum_{x= i - R + 1}^{i}{\sum_{y=j - R + 1}^{j}{A[x, y]}} = S[i, j] - S[i - R, j] - S[i, j - R] + S[i - R, j - R] \\
+&sum((x_1, y_1) , (x_2, y_2)) = \sum_{x = x_1}^{x_2}{\sum_{y = y_1}^{y2}{A[x, y]}} = S[x_2, y_2] - S[x_1 - 1, y_2] - S[x_2, y_1 - 1] + S[x_1 - 1, y_1 - 1]
+\end{align}</script></blockquote>
+<h4 id="Step-1-初始化-2"><a href="#Step-1-初始化-2" class="headerlink" title="Step 1 初始化"></a>Step 1 初始化</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j ++ )<br>		s[i][j] += s[i - <span class="hljs-number">1</span>][j] + s[i][j - <span class="hljs-number">1</span>] - s[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>];<br></code></pre></td></tr></table></figure>
 <h1 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h1><h2 id="组合数学"><a href="#组合数学" class="headerlink" title="组合数学"></a>组合数学</h2><h3 id="加法原理"><a href="#加法原理" class="headerlink" title="加法原理"></a>加法原理</h3><p>完成一个工程可以有 $n$ 类办法， $a_i(1 \leq i \leq n)$ 代表第 $i$ 类方法的数目。那么完成这件事共有 $S = a_1 + a_2 + \cdots + a_n$ 种不同的方法。</p>
 <h3 id="乘法原理"><a href="#乘法原理" class="headerlink" title="乘法原理"></a>乘法原理</h3><p>完成一个工程需要分 $n$ 个步骤， $a_i(1 \leq i \leq n)$ 代表第 $i$ 个步骤的不同方法数目。那么完成这件事共有 $S = a_1 \times a_2 \times \cdots \times a_n$ 种不同的方法。</p>
 <h3 id="排列数"><a href="#排列数" class="headerlink" title="排列数"></a>排列数</h3><p>从 $n$ 个不同元素中，任取 $m$（$m\leq n$，$m$ 与 $n$ 均为自然数，下同）个元素按照一定的顺序排成一列，叫做从 $n$ 个不同元素中取出 $m$ 个元素的一个排列；从 $n$ 个不同元素中取出 $m$($m\leq n$) 个元素的所有排列的个数，叫做从 $n$ 个不同元素中取出 $m$ 个元素的排列数，用符号 $\mathrm A_n^m$（或者是 $\mathrm P_n^m$）表示。</p>
