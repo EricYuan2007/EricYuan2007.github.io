@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.2k 字
+      4.3k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      108
+      111
        分钟
     </span>
   
@@ -493,6 +493,11 @@
 <p>NOTE : 模板尚不兼容 <code>C++ 98</code> ，待修改</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(vector&lt;PII&gt; &amp;segs)</span></span><br><span class="hljs-function"></span>&#123;<br>    vector&lt;PII&gt; res;<br><br>    <span class="hljs-built_in">sort</span>(segs.<span class="hljs-built_in">begin</span>(), segs.<span class="hljs-built_in">end</span>());<br><br>    <span class="hljs-keyword">int</span> st = <span class="hljs-number">-2e9</span>, ed = <span class="hljs-number">-2e9</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> seg : segs)<br>        <span class="hljs-keyword">if</span> (ed &lt; seg.first)<br>        &#123;<br>            <span class="hljs-keyword">if</span> (st != <span class="hljs-number">-2e9</span>) res.<span class="hljs-built_in">push_back</span>(&#123;st, ed&#125;);<br>            st = seg.first, ed = seg.second;<br>        &#125;<br>        <span class="hljs-keyword">else</span> ed = <span class="hljs-built_in">max</span>(ed, seg.second);<br><br>    <span class="hljs-keyword">if</span> (st != <span class="hljs-number">-2e9</span>) res.<span class="hljs-built_in">push_back</span>(&#123;st, ed&#125;);<br><br>    segs = res;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="求下一个排列"><a href="#求下一个排列" class="headerlink" title="求下一个排列"></a>求下一个排列</h2><h3 id="Method-1-朴素版"><a href="#Method-1-朴素版" class="headerlink" title="Method 1 朴素版"></a>Method 1 朴素版</h3><blockquote>
+<p><code>n</code> 表示数组大小</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">np</span><span class="hljs-params">(<span class="hljs-keyword">int</span> q[], <span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> k = n - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (q[k - <span class="hljs-number">1</span>] &gt; q[k]) k -- ;<br>    <span class="hljs-keyword">int</span> t = k - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (k + <span class="hljs-number">1</span> &lt; n &amp;&amp; q[k + <span class="hljs-number">1</span>] &gt; q[t]) k ++ ;<br>    <span class="hljs-built_in">swap</span>(q[t], q[k]);<br>    <span class="hljs-built_in">reverse</span>(q + t + <span class="hljs-number">1</span>, q + n);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Method-2-STL-next-permutation-实现"><a href="#Method-2-STL-next-permutation-实现" class="headerlink" title="Method 2 STL next_permutation() 实现"></a>Method 2 STL next_permutation() 实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-built_in">next_permutation</span>(q, q + n);<br></code></pre></td></tr></table></figure>
 <h1 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h1><h2 id="组合数学"><a href="#组合数学" class="headerlink" title="组合数学"></a>组合数学</h2><h3 id="加法原理"><a href="#加法原理" class="headerlink" title="加法原理"></a>加法原理</h3><p>完成一个工程可以有 $n$ 类办法， $a_i(1 \leq i \leq n)$ 代表第 $i$ 类方法的数目。那么完成这件事共有 $S = a_1 + a_2 + \cdots + a_n$ 种不同的方法。</p>
 <h3 id="乘法原理"><a href="#乘法原理" class="headerlink" title="乘法原理"></a>乘法原理</h3><p>完成一个工程需要分 $n$ 个步骤， $a_i(1 \leq i \leq n)$ 代表第 $i$ 个步骤的不同方法数目。那么完成这件事共有 $S = a_1 \times a_2 \times \cdots \times a_n$ 种不同的方法。</p>
 <h3 id="排列数"><a href="#排列数" class="headerlink" title="排列数"></a>排列数</h3><p>从 $n$ 个不同元素中，任取 $m$（$m\leq n$，$m$ 与 $n$ 均为自然数，下同）个元素按照一定的顺序排成一列，叫做从 $n$ 个不同元素中取出 $m$ 个元素的一个排列；从 $n$ 个不同元素中取出 $m$($m\leq n$) 个元素的所有排列的个数，叫做从 $n$ 个不同元素中取出 $m$ 个元素的排列数，用符号 $\mathrm A_n^m$（或者是 $\mathrm P_n^m$）表示。</p>
