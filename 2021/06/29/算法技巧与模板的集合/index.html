@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.8k 字
+      5.2k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      124
+      132
        分钟
     </span>
   
@@ -242,7 +242,7 @@
 ">[2]</span></a></sup>，《算法竞赛进阶指南》<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="《算法竞赛进阶指南》 李煜东著  2018年1月第1版  2020年8月第6次印刷
 ">[3]</span></a></sup>等资料上的算法模板为基础，整理OI竞赛常用的算法技巧与模板（不给出思路与推导）</p>
 <p>挖个大坑，持续更新~</p>
-<p>update on 2021/8/19</p>
+<p>update on 2021/8/20</p>
 </blockquote>
 <h1 id="重点语法"><a href="#重点语法" class="headerlink" title="重点语法"></a>重点语法</h1><h2 id="常用头文件"><a href="#常用头文件" class="headerlink" title="常用头文件"></a>常用头文件</h2><blockquote>
 <p>个人不推荐使用 <code>#include &lt;bits/stdc++.h&gt;</code> ，因为这样会造成奇奇怪怪的变量错误，例如 <code>cmath</code> 库中定义了 <code>y1</code> ，<code>y2</code> 的变量名</p>
@@ -388,6 +388,122 @@
 <h4 id="Step-2-3-获取栈顶-1"><a href="#Step-2-3-获取栈顶-1" class="headerlink" title="Step 2.3 获取栈顶"></a>Step 2.3 获取栈顶</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">stk.<span class="hljs-built_in">top</span>();<br></code></pre></td></tr></table></figure>
 <h4 id="Step-2-4-检查是否为空-1"><a href="#Step-2-4-检查是否为空-1" class="headerlink" title="Step 2.4 检查是否为空"></a>Step 2.4 检查是否为空</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">stk.<span class="hljs-built_in">empty</span>()<br></code></pre></td></tr></table></figure>
 <h4 id="Step-2-5-返回元素个数"><a href="#Step-2-5-返回元素个数" class="headerlink" title="Step 2.5 返回元素个数"></a>Step 2.5 返回元素个数</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">stk.<span class="hljs-built_in">size</span>()<br></code></pre></td></tr></table></figure>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><h3 id="Method-1-普通队列"><a href="#Method-1-普通队列" class="headerlink" title="Method 1 普通队列"></a>Method 1 普通队列</h3><h4 id="Step-1-初始化-2"><a href="#Step-1-初始化-2" class="headerlink" title="Step 1 初始化"></a>Step 1 初始化</h4><blockquote>
+<p><code>hh</code> 表示队头，<code>tt</code> 表示队尾</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> q[N], hh, tt = <span class="hljs-number">-1</span>;<br></code></pre></td></tr></table></figure>
+<h4 id="Step-2-1-队尾插入"><a href="#Step-2-1-队尾插入" class="headerlink" title="Step 2.1 队尾插入"></a>Step 2.1 队尾插入</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">q[ ++ tt] = x;<br></code></pre></td></tr></table></figure>
+<h4 id="Step-2-2-队头弹出"><a href="#Step-2-2-队头弹出" class="headerlink" title="Step 2.2 队头弹出"></a>Step 2.2 队头弹出</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">hh ++ ;<br></code></pre></td></tr></table></figure>
+<h4 id="Step-2-3-取出队头"><a href="#Step-2-3-取出队头" class="headerlink" title="Step 2.3 取出队头"></a>Step 2.3 取出队头</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">q[hh];<br></code></pre></td></tr></table></figure>
+<h4 id="Step-2-4-判断是否为空"><a href="#Step-2-4-判断是否为空" class="headerlink" title="Step 2.4 判断是否为空"></a>Step 2.4 判断是否为空</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">empty</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> hh &lt;= tt;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Method-2-循环队列"><a href="#Method-2-循环队列" class="headerlink" title="Method 2 循环队列"></a>Method 2 循环队列</h3><blockquote>
+<p><code>hh</code> 表示队头，<code>tt</code> 表示队尾的后一个位置</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> q[N], hh, tt;<br></code></pre></td></tr></table></figure>
+<h4 id="Step-2-1-队尾插入-1"><a href="#Step-2-1-队尾插入-1" class="headerlink" title="Step 2.1 队尾插入"></a>Step 2.1 队尾插入</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++">q[tt ++ ] = x;<br><span class="hljs-keyword">if</span> (tt == N) tt = <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
+<h4 id="Step-2-2-队头弹出-1"><a href="#Step-2-2-队头弹出-1" class="headerlink" title="Step 2.2 队头弹出"></a>Step 2.2 队头弹出</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++">hh ++ ;<br><span class="hljs-keyword">if</span> (hh == N) hh = <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
+<h4 id="Step-2-3-取出队头-1"><a href="#Step-2-3-取出队头-1" class="headerlink" title="Step 2.3 取出队头"></a>Step 2.3 取出队头</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">q[hh];<br></code></pre></td></tr></table></figure>
+<h4 id="Step-2-4-判断是否为空-1"><a href="#Step-2-4-判断是否为空-1" class="headerlink" title="Step 2.4 判断是否为空"></a>Step 2.4 判断是否为空</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">empty</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> hh != tt;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Method-3-STL-循环队列-queue-实现"><a href="#Method-3-STL-循环队列-queue-实现" class="headerlink" title="Method 3 STL 循环队列 queue 实现"></a>Method 3 STL 循环队列 queue 实现</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">示例</th>
+<th style="text-align:center">时间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>push</code></td>
+<td style="text-align:center">入队（从队尾）</td>
+<td style="text-align:center"><code>q.push(x);</code></td>
+<td style="text-align:center">$O(1)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>pop</code></td>
+<td style="text-align:center">出队（从队头）</td>
+<td style="text-align:center"><code>q.pop();</code></td>
+<td style="text-align:center">$O(1)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>front</code></td>
+<td style="text-align:center">队头元素</td>
+<td style="text-align:center"><code>int x = q.front();</code></td>
+<td style="text-align:center">$O(1)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>back</code></td>
+<td style="text-align:center">队尾元素</td>
+<td style="text-align:center"><code>int y = q.back();</code></td>
+<td style="text-align:center">$O(1)$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Method-3-STL-双端队列-deque-实现"><a href="#Method-3-STL-双端队列-deque-实现" class="headerlink" title="Method 3 STL 双端队列 deque 实现"></a>Method 3 STL 双端队列 deque 实现</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">示例</th>
+<th style="text-align:center">时间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>[]</code></td>
+<td style="text-align:center">随机访问</td>
+<td style="text-align:center">与 <code>vector</code> 类似</td>
+<td style="text-align:center">$O(1)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>begin/end</code></td>
+<td style="text-align:center"><code>deque</code> 的头/尾迭代器</td>
+<td style="text-align:center">与 <code>vector</code> 迭代器类似</td>
+<td style="text-align:center">$O(1)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>front</code> / <code>back</code></td>
+<td style="text-align:center">队头/队尾元素</td>
+<td style="text-align:center">与 <code>queue</code> 类似</td>
+<td style="text-align:center">$O(1)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>push_back</code></td>
+<td style="text-align:center">从队尾入队</td>
+<td style="text-align:center"><code>q.push_back(x);</code></td>
+<td style="text-align:center">$O(1)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>push_front</code></td>
+<td style="text-align:center">从队头入队</td>
+<td style="text-align:center"><code>q.push_front(y);</code></td>
+<td style="text-align:center">$O(1)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>pop_back</code></td>
+<td style="text-align:center">从队尾出队</td>
+<td style="text-align:center"><code>q.pop_back();</code></td>
+<td style="text-align:center">$O(1)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>pop_front</code></td>
+<td style="text-align:center">从队头出队</td>
+<td style="text-align:center"><code>q.pop_front();</code></td>
+<td style="text-align:center">$O(1)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>clear</code></td>
+<td style="text-align:center">清空队列</td>
+<td style="text-align:center"><code>q.clear();</code></td>
+<td style="text-align:center">$O(n)$</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><h3 id="STL-优先队列-priority-queue-实现"><a href="#STL-优先队列-priority-queue-实现" class="headerlink" title="STL 优先队列 priority_queue 实现"></a>STL 优先队列 priority_queue 实现</h3><h4 id="Step-1-定义-2"><a href="#Step-1-定义-2" class="headerlink" title="Step 1 定义"></a>Step 1 定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++">priority_queue&lt;<span class="hljs-keyword">int</span>&gt; heap; <span class="hljs-comment">// 默认大根堆</span><br>priority_queue&lt;<span class="hljs-keyword">int</span>, vector&lt;<span class="hljs-keyword">int</span>&gt;, greater&lt;<span class="hljs-keyword">int</span>&gt; &gt; heap; <span class="hljs-comment">// 小根堆</span><br></code></pre></td></tr></table></figure>
 <h4 id="Step-2-1-插入元素"><a href="#Step-2-1-插入元素" class="headerlink" title="Step 2.1 插入元素"></a>Step 2.1 插入元素</h4><p>时间复杂度：$O(\log n)$</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">heap.<span class="hljs-built_in">push</span>(x);<br></code></pre></td></tr></table></figure>
@@ -410,7 +526,7 @@
 <p>通过对快速排序进行适当变形，即可快速查找出数组中按顺序排列的任意一元素</p>
 </blockquote>
 <h3 id="Method-2-归并排序"><a href="#Method-2-归并排序" class="headerlink" title="Method 2 归并排序"></a>Method 2 归并排序</h3><p>时间复杂度：$O(n \log n)$</p>
-<h4 id="Step-1-初始化-2"><a href="#Step-1-初始化-2" class="headerlink" title="Step 1 初始化"></a>Step 1 初始化</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> tmp[N];<br></code></pre></td></tr></table></figure>
+<h4 id="Step-1-初始化-3"><a href="#Step-1-初始化-3" class="headerlink" title="Step 1 初始化"></a>Step 1 初始化</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> tmp[N];<br></code></pre></td></tr></table></figure>
 <h4 id="Step-2-排序"><a href="#Step-2-排序" class="headerlink" title="Step 2 排序"></a>Step 2 排序</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">merge_sort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> q[], <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (l &gt;= r) <span class="hljs-keyword">return</span>;<br><br>    <span class="hljs-keyword">int</span> mid = l + r &gt;&gt; <span class="hljs-number">1</span>;<br>    <span class="hljs-built_in">merge_sort</span>(q, l, mid);<br>    <span class="hljs-built_in">merge_sort</span>(q, mid + <span class="hljs-number">1</span>, r);<br><br>    <span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>, i = l, j = mid + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= r)<br>        <span class="hljs-keyword">if</span> (q[i] &lt;= q[j]) tmp[k ++ ] = q[i ++ ];<br>        <span class="hljs-keyword">else</span> tmp[k ++ ] = q[j ++ ];<br><br>    <span class="hljs-keyword">while</span> (i &lt;= mid) tmp[k ++ ] = q[i ++ ];<br>    <span class="hljs-keyword">while</span> (j &lt;= r) tmp[k ++ ] = q[j ++ ];<br><br>    <span class="hljs-keyword">for</span> (i = l, j = <span class="hljs-number">0</span>; i &lt;= r; i ++, j ++ ) q[i] = tmp[j];<br>&#125;<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>通过对归并排序进行适当变形，可快速合并任意个单调区间，也称 <code>多路归并</code> </p>
@@ -459,7 +575,7 @@
 &S[i] = \sum_{j=1}^{i}{A[j]} \\
 &sum(l, r) = \sum_{i = l}^{r}{A[i]} = S[r] - S[l - 1]
 \end{align}</script></blockquote>
-<h4 id="Step-1-初始化-3"><a href="#Step-1-初始化-3" class="headerlink" title="Step 1 初始化"></a>Step 1 初始化</h4><blockquote>
+<h4 id="Step-1-初始化-4"><a href="#Step-1-初始化-4" class="headerlink" title="Step 1 初始化"></a>Step 1 初始化</h4><blockquote>
 <p><code>a[]</code> 表示原数组， <code>n</code> 表示有效数组大小， <code>s[]</code> 表示前缀和数组</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ ) s[i] = s[i - <span class="hljs-number">1</span>] + a[i];<br></code></pre></td></tr></table></figure>
@@ -472,7 +588,7 @@
 &\sum_{x= i - R + 1}^{i}{\sum_{y=j - R + 1}^{j}{A[x, y]}} = S[i, j] - S[i - R, j] - S[i, j - R] + S[i - R, j - R] \\
 &sum((x_1, y_1) , (x_2, y_2)) = \sum_{x = x_1}^{x_2}{\sum_{y = y_1}^{y2}{A[x, y]}} = S[x_2, y_2] - S[x_1 - 1, y_2] - S[x_2, y_1 - 1] + S[x_1 - 1, y_1 - 1]
 \end{align}</script></blockquote>
-<h4 id="Step-1-初始化-4"><a href="#Step-1-初始化-4" class="headerlink" title="Step 1 初始化"></a>Step 1 初始化</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j ++ )<br>		s[i][j] += s[i - <span class="hljs-number">1</span>][j] + s[i][j - <span class="hljs-number">1</span>] - s[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>];<br></code></pre></td></tr></table></figure>
+<h4 id="Step-1-初始化-5"><a href="#Step-1-初始化-5" class="headerlink" title="Step 1 初始化"></a>Step 1 初始化</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j ++ )<br>		s[i][j] += s[i - <span class="hljs-number">1</span>][j] + s[i][j - <span class="hljs-number">1</span>] - s[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>];<br></code></pre></td></tr></table></figure>
 <h4 id="Step-2-区间计算-1"><a href="#Step-2-区间计算-1" class="headerlink" title="Step 2 区间计算"></a>Step 2 区间计算</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s[], <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> s[x2][y2] - s[x1 - <span class="hljs-number">1</span>][y2] - s[x2][y1 - <span class="hljs-number">1</span>] + s[x1 - <span class="hljs-number">1</span>][y1 - <span class="hljs-number">1</span>];<br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h2><blockquote>
 <p>可将 <code>差分</code> 理解为 <code>前缀和</code> 的逆运算</p>
