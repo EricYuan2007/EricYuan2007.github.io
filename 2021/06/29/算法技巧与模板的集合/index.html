@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.3k 字
+      5.4k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      136
+      139
        分钟
     </span>
   
@@ -242,7 +242,7 @@
 ">[2]</span></a></sup>，《算法竞赛进阶指南》<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="《算法竞赛进阶指南》 李煜东著  2018年1月第1版  2020年8月第6次印刷
 ">[3]</span></a></sup>等资料上的算法模板为基础，整理OI竞赛常用的算法技巧与模板（不给出思路与推导）</p>
 <p>挖个大坑，持续更新~</p>
-<p>update on 2021/8/22</p>
+<p>update on 2021/8/23 </p>
 </blockquote>
 <h1 id="重点语法"><a href="#重点语法" class="headerlink" title="重点语法"></a>重点语法</h1><h2 id="常用头文件"><a href="#常用头文件" class="headerlink" title="常用头文件"></a>常用头文件</h2><blockquote>
 <p>个人不推荐使用 <code>#include &lt;bits/stdc++.h&gt;</code> ，因为这样会造成奇奇怪怪的变量错误，例如 <code>cmath</code> 库中定义了 <code>y1</code> ，<code>y2</code> 的变量名</p>
@@ -512,6 +512,13 @@
 <p>常见模型：找出滑动窗口中的最大值/最小值</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> hh = <span class="hljs-number">0</span>, tt = <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i ++ )<br>&#123;<br>    <span class="hljs-keyword">while</span> (hh &lt;= tt &amp;&amp; <span class="hljs-built_in">check_out</span>(q[hh])) hh ++ ;  <span class="hljs-comment">// 判断队头是否滑出窗口</span><br>    <span class="hljs-keyword">while</span> (hh &lt;= tt &amp;&amp; <span class="hljs-built_in">check</span>(q[tt], i)) tt -- ;<br>    q[ ++ tt] = i;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h2><blockquote>
+<p><code>s[]</code> 是长文本，<code>p[]</code> 是模式串，<code>n</code> 是 <code>s</code> 的长度，<code>m</code> 是 <code>p</code> 的长度</p>
+<p><strong>NOTE</strong></p>
+<p>下标从 <code>1</code> 开始</p>
+</blockquote>
+<h3 id="Step-1-求模式串的Next数组"><a href="#Step-1-求模式串的Next数组" class="headerlink" title="Step 1 求模式串的Next数组"></a>Step 1 求模式串的Next数组</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>, j = <span class="hljs-number">0</span>; i &lt;= m; i ++ )<br>&#123;<br>    <span class="hljs-keyword">while</span> (j &amp;&amp; p[i] != p[j + <span class="hljs-number">1</span>]) j = ne[j];<br>    <span class="hljs-keyword">if</span> (p[i] == p[j + <span class="hljs-number">1</span>]) j ++ ;<br>    ne[i] = j;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Step-2-匹配"><a href="#Step-2-匹配" class="headerlink" title="Step 2 匹配"></a>Step 2 匹配</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>, j = <span class="hljs-number">0</span>; i &lt;= n; i ++ )<br>&#123;<br>    <span class="hljs-keyword">while</span> (j &amp;&amp; s[i] != p[j + <span class="hljs-number">1</span>]) j = ne[j];<br>    <span class="hljs-keyword">if</span> (s[i] == p[j + <span class="hljs-number">1</span>]) j ++ ;<br>    <span class="hljs-keyword">if</span> (j == m)<br>    &#123;<br>        j = ne[j];<br>        <span class="hljs-comment">/* 匹配成功后的逻辑 */</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><h3 id="STL-优先队列-priority-queue-实现"><a href="#STL-优先队列-priority-queue-实现" class="headerlink" title="STL 优先队列 priority_queue 实现"></a>STL 优先队列 priority_queue 实现</h3><h4 id="Step-1-定义-2"><a href="#Step-1-定义-2" class="headerlink" title="Step 1 定义"></a>Step 1 定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++">priority_queue&lt;<span class="hljs-keyword">int</span>&gt; heap; <span class="hljs-comment">// 默认大根堆</span><br>priority_queue&lt;<span class="hljs-keyword">int</span>, vector&lt;<span class="hljs-keyword">int</span>&gt;, greater&lt;<span class="hljs-keyword">int</span>&gt; &gt; heap; <span class="hljs-comment">// 小根堆</span><br></code></pre></td></tr></table></figure>
 <h4 id="Step-2-1-插入元素"><a href="#Step-2-1-插入元素" class="headerlink" title="Step 2.1 插入元素"></a>Step 2.1 插入元素</h4><p>时间复杂度：$O(\log n)$</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">heap.<span class="hljs-built_in">push</span>(x);<br></code></pre></td></tr></table></figure>
