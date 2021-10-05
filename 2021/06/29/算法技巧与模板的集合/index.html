@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.4k 字
+      5.6k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      139
+      142
        分钟
     </span>
   
@@ -242,7 +242,7 @@
 ">[2]</span></a></sup>，《算法竞赛进阶指南》<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="《算法竞赛进阶指南》 李煜东著  2018年1月第1版  2020年8月第6次印刷
 ">[3]</span></a></sup>等资料上的算法模板为基础，整理OI竞赛常用的算法技巧与模板（不给出思路与推导）</p>
 <p>挖个大坑，持续更新~</p>
-<p>update on 2021/8/23 </p>
+<p>update on 2021/10/5</p>
 </blockquote>
 <h1 id="重点语法"><a href="#重点语法" class="headerlink" title="重点语法"></a>重点语法</h1><h2 id="常用头文件"><a href="#常用头文件" class="headerlink" title="常用头文件"></a>常用头文件</h2><blockquote>
 <p>个人不推荐使用 <code>#include &lt;bits/stdc++.h&gt;</code> ，因为这样会造成奇奇怪怪的变量错误，例如 <code>cmath</code> 库中定义了 <code>y1</code> ，<code>y2</code> 的变量名</p>
@@ -671,6 +671,17 @@
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">np</span><span class="hljs-params">(<span class="hljs-keyword">int</span> q[], <span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> k = n - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (q[k - <span class="hljs-number">1</span>] &gt; q[k]) k -- ;<br>    <span class="hljs-keyword">int</span> t = k - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (k + <span class="hljs-number">1</span> &lt; n &amp;&amp; q[k + <span class="hljs-number">1</span>] &gt; q[t]) k ++ ;<br>    <span class="hljs-built_in">swap</span>(q[t], q[k]);<br>    <span class="hljs-built_in">reverse</span>(q + t + <span class="hljs-number">1</span>, q + n);<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="Method-2-STL-next-permutation-实现"><a href="#Method-2-STL-next-permutation-实现" class="headerlink" title="Method 2 STL next_permutation() 实现"></a>Method 2 STL next_permutation() 实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-built_in">next_permutation</span>(q, q + n);<br></code></pre></td></tr></table></figure>
+<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="分析方法（闫氏DP分析法）"><a href="#分析方法（闫氏DP分析法）" class="headerlink" title="分析方法（闫氏DP分析法）"></a>分析方法（闫氏DP分析法）</h2><blockquote>
+<p>事实上，一般的DP分析方法即为分析 <strong>“状态”，“阶段”和“决策”</strong>  ，此处采用一种新型（似乎更易理解）的方式进行分析，即 <code>闫氏DP分析法</code><sup id="fnref:10" class="footnote-ref"><a href="#fn:10" rel="footnote"><span class="hint--top hint--rounded" aria-label="详见 闫氏DP分析法，从此再也不怕DP问题！
+">[10]</span></a></sup>。</p>
+</blockquote>
+<pre><code class=" mermaid">flowchart LR
+	1((动态规划)) --&gt; 2[状态表示] &amp; 3[状态计算]
+	2[状态表示] --&gt; 4[集合] &amp; 5[属性]
+	4[集合] --- 6(所有的选法) &amp; 7(条件)
+	5[属性] --- 8(max) &amp; 9(min) &amp; 10(数量)
+	3[状态计算] --- 11(本质就是集合的划分)
+</code></pre>
 <h1 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h1><h2 id="组合数学"><a href="#组合数学" class="headerlink" title="组合数学"></a>组合数学</h2><h3 id="加法原理"><a href="#加法原理" class="headerlink" title="加法原理"></a>加法原理</h3><p>完成一个工程可以有 $n$ 类办法， $a_i(1 \leq i \leq n)$ 代表第 $i$ 类方法的数目。那么完成这件事共有 $S = a_1 + a_2 + \cdots + a_n$ 种不同的方法。</p>
 <h3 id="乘法原理"><a href="#乘法原理" class="headerlink" title="乘法原理"></a>乘法原理</h3><p>完成一个工程需要分 $n$ 个步骤， $a_i(1 \leq i \leq n)$ 代表第 $i$ 个步骤的不同方法数目。那么完成这件事共有 $S = a_1 \times a_2 \times \cdots \times a_n$ 种不同的方法。</p>
 <h3 id="排列数"><a href="#排列数" class="headerlink" title="排列数"></a>排列数</h3><p>从 $n$ 个不同元素中，任取 $m$（$m\leq n$，$m$ 与 $n$ 均为自然数，下同）个元素按照一定的顺序排成一列，叫做从 $n$ 个不同元素中取出 $m$ 个元素的一个排列；从 $n$ 个不同元素中取出 $m$($m\leq n$) 个元素的所有排列的个数，叫做从 $n$ 个不同元素中取出 $m$ 个元素的排列数，用符号 $\mathrm A_n^m$（或者是 $\mathrm P_n^m$）表示。</p>
@@ -837,7 +848,8 @@
 <a href="#fnref:6" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:7" class="footnote-text"><span>参考 <a target="_blank" rel="noopener" href="https://www.acwing.com/blog/content/32/">由数据范围反推算法复杂度以及算法内容 - AcWing</a>
 <a href="#fnref:7" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:8" class="footnote-text"><span>摘自 <a target="_blank" rel="noopener" href="https://blog.csdn.net/zcyzsy/article/details/77935651">C/C++中基本数据类型所占内存大小_ZMyths的博客</a>
 <a href="#fnref:8" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:9" class="footnote-text"><span>本文时间复杂度为便于记忆，取通常情况
-<a href="#fnref:9" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<a href="#fnref:9" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:10" class="footnote-text"><span>详见 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1X741127ZM?spm_id_from=333.999.0.0">闫氏DP分析法，从此再也不怕DP问题！</a>
+<a href="#fnref:10" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
             </div>
             <hr>
             <div>
@@ -1106,6 +1118,13 @@
 
 
 
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
 
 
 
