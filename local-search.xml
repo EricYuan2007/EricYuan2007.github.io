@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>因式分解技巧</title>
+    <link href="/2022/01/20/%E5%9B%A0%E5%BC%8F%E5%88%86%E8%A7%A3%E6%8A%80%E5%B7%A7/"/>
+    <url>/2022/01/20/%E5%9B%A0%E5%BC%8F%E5%88%86%E8%A7%A3%E6%8A%80%E5%B7%A7/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="因式分解技巧"><a href="#因式分解技巧" class="headerlink" title="因式分解技巧"></a>因式分解技巧</h1><blockquote><p>本篇博客主要谈论初中数学竞赛中的因式分解（大概可以理解为小蓝本上知识点的整理和扩充）</p><p>但愿不会在鸽了。。。＞﹏＜</p></blockquote><h2 id="1-常用公式"><a href="#1-常用公式" class="headerlink" title="1 常用公式"></a>1 常用公式</h2><ol><li>$a^2 - b^2 = (a + b)(a - b)$</li><li>$a^3 + b^3 = (a + b)(a^2 - ab + b^2)$</li><li>$a^3 - b^3 = (a - b)(a^2 + ab + b^2)$</li><li>$a^2 + 2ab + b^2 = (a + b)^2$</li><li>$a^2 - 2ab + b^2 = (a - b)^2$</li><li>$a^3 + 3a^2b + 3ab^2 + b^3 = (a+b)^3$</li><li>$a^3 -3a^2b + 3ab^2 -b^3 = (a-b)^3$</li><li>$a^2 + b^2 + c^2 + 2ab + 2ac + 2bc = (a + b + c)^2$</li><li>$a^4 + a^2b^2 + b^4 = (a^2 + ab + b^2)(a^2 - ab + b^2)$</li><li>$a^6 - b^6 = (a + b)(a - b)(a^2 + ab + b^2)(a^2 - ab + b^2)$</li><li>$a^n + b^n = (a + b)(a^{n-1} - a^{n-2}b + a^{n-3}b^2 - \dots -ab^{n-2} + b^{n-1})$（$n$ 为正奇数）</li><li>$a^n - b^n = (a - b)(a^{n-1} + a^{n-2}b + a^{n-3}b^2 + \dots + ab^{n-2} + b^{n-1})$</li><li>$a^2 + b^2 + c^2 + d^2 + 2ab + 2ac + 2ad + 2bc + 2bd + 2cd = (a + b + c + d)^2$</li><li>$a^2 + b^2 + c^2 - ab - bc - ac = \frac{1}{2}[(a - b)^2 + (b-c)^2 + (c-a)^2]$</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>数学</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数学</tag>
+      
+      <tag>初中竞赛</tag>
+      
+      <tag>小蓝本</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>算法技巧与模板的集合</title>
     <link href="/2021/06/29/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%9A%84%E9%9B%86%E5%90%88/"/>
     <url>/2021/06/29/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%9A%84%E9%9B%86%E5%90%88/</url>

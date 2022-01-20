@@ -18,9 +18,25 @@
   <meta name="author" content="yyp">
   <meta name="keywords" content="">
   
-  <title>yyp&#39;s blog</title>
+  <title>因式分解技巧 - yyp&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -48,7 +64,7 @@
 
 
 <body>
-  <header style="height: 100vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -147,17 +163,58 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="A Personal Blog By yyp">
+            <span class="h2" id="subtitle" title="因式分解技巧">
               
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-01-20 21:04" pubdate>
+        2022年1月20日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      269 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -166,262 +223,146 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">因式分解技巧</h1>
+            
+            <div class="markdown-body">
+              <h1 id="因式分解技巧"><a href="#因式分解技巧" class="headerlink" title="因式分解技巧"></a>因式分解技巧</h1><blockquote>
+<p>本篇博客主要谈论初中数学竞赛中的因式分解（大概可以理解为小蓝本上知识点的整理和扩充）</p>
+<p>但愿不会在鸽了。。。＞﹏＜</p>
+</blockquote>
+<h2 id="1-常用公式"><a href="#1-常用公式" class="headerlink" title="1 常用公式"></a>1 常用公式</h2><ol>
+<li>$a^2 - b^2 = (a + b)(a - b)$</li>
+<li>$a^3 + b^3 = (a + b)(a^2 - ab + b^2)$</li>
+<li>$a^3 - b^3 = (a - b)(a^2 + ab + b^2)$</li>
+<li>$a^2 + 2ab + b^2 = (a + b)^2$</li>
+<li>$a^2 - 2ab + b^2 = (a - b)^2$</li>
+<li>$a^3 + 3a^2b + 3ab^2 + b^3 = (a+b)^3$</li>
+<li>$a^3 -3a^2b + 3ab^2 -b^3 = (a-b)^3$</li>
+<li>$a^2 + b^2 + c^2 + 2ab + 2ac + 2bc = (a + b + c)^2$</li>
+<li>$a^4 + a^2b^2 + b^4 = (a^2 + ab + b^2)(a^2 - ab + b^2)$</li>
+<li>$a^6 - b^6 = (a + b)(a - b)(a^2 + ab + b^2)(a^2 - ab + b^2)$</li>
+<li>$a^n + b^n = (a + b)(a^{n-1} - a^{n-2}b + a^{n-3}b^2 - \dots -ab^{n-2} + b^{n-1})$（$n$ 为正奇数）</li>
+<li>$a^n - b^n = (a - b)(a^{n-1} + a^{n-2}b + a^{n-3}b^2 + \dots + ab^{n-2} + b^{n-1})$</li>
+<li>$a^2 + b^2 + c^2 + d^2 + 2ab + 2ac + 2ad + 2bc + 2bd + 2cd = (a + b + c + d)^2$</li>
+<li>$a^2 + b^2 + c^2 - ab - bc - ac = \frac{1}{2}[(a - b)^2 + (b-c)^2 + (c-a)^2]$</li>
+</ol>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/05/16/%E9%A2%98%E8%A7%A3%20USACO2.1%20%E5%81%A5%E5%BA%B7%E7%9A%84%E8%8D%B7%E6%96%AF%E5%9D%A6%E5%A5%B6%E7%89%9B%20Healthy%20Holsteins/">题解 USACO2.1 健康的荷斯坦奶牛 Healthy Holsteins</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/05/16/%E9%A2%98%E8%A7%A3%20USACO2.1%20%E5%81%A5%E5%BA%B7%E7%9A%84%E8%8D%B7%E6%96%AF%E5%9D%A6%E5%A5%B6%E7%89%9B%20Healthy%20Holsteins/">
-          
-          
-            
-          
-          题解 USACO2.1 健康的荷斯坦奶牛 Healthy Holsteins题目来源
-洛谷
-AcWing
-
-题目与题意选择最小的 $p$ 个饲料，使得每一项维他命含量均大于所需最小维他命含量
-思路分析采用 dfs 算法，按顺序枚举所有可能情况，如果满足则对比所需饲料数，若小于当前最小数，则更新变量 $p$ 并退出循环，最后输出答案。
-AC代码1234567891011121314151617181
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-16 21:25" pubdate>
-              2021-05-16
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%99%AE%E5%8F%8A/">普及-</a>
-            
-              <a href="/tags/dfs/">dfs</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/04/22/%E9%A2%98%E8%A7%A3%20CF14A%20Letter/">题解 CF14A Letter</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/04/22/%E9%A2%98%E8%A7%A3%20CF14A%20Letter/">
-          
-          
-            
-          
-          题解 CF14A Letter题目来源
-洛谷
-Codeforces
-
-题目与题意给定一 $N \times M$规模的矩阵，输出最小的包含所有 * 的矩阵。
-思路分析一道模拟题
-找出符合题意的矩阵仅需找出左上角的点与右下角的点，左上角的点横纵坐标为所有 * 的横纵坐标的最小值，右下角的点横纵坐标为所有 * 的横纵坐标的最大值，因此只要判断所有 * 即可。
-AC代码12345678910111213
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-22 21:47" pubdate>
-              2021-04-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%A8%A1%E6%8B%9F/">模拟</a>
-            
-              <a href="/tags/%E5%85%A5%E9%97%A8/">入门</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/04/18/%E9%A2%98%E8%A7%A3%20CF11A%20Increasing%20Sequence/">题解 CF11A Increasing Sequence</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/04/18/%E9%A2%98%E8%A7%A3%20CF11A%20Increasing%20Sequence/">
-          
-          
-            
-          
-          题解 CF11A Increasing Sequence题目来源
-洛谷
-Codeforces
-
-题目与题意把数列中一个数加上 $d$ 算作一次操作，求最少几次操作能把这个数列变为递增数列。
-递增数列：数列后一项皆比前一项大。
-思路分析水平不够，只能水一水入门题
-这题可以直接模拟，但大数据会TLE，因此必须采用 (l - r) / d + 1 的计算公式进行快速求解。
-AC代码12345678910
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-18 21:50" pubdate>
-              2021-04-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%A8%A1%E6%8B%9F/">模拟</a>
-            
-              <a href="/tags/%E5%85%A5%E9%97%A8/">入门</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/04/04/%E6%95%B0%E8%AE%BA1/">数论1</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/04/04/%E6%95%B0%E8%AE%BA1/">
-          
-          
-            
-          
-          数论1
-质数专题
-
-涉及知识关于质数（素数）素数的性质[2]：
-1、一个大于1的正整数的大于1的最小因子为素数。
-这条性质看上去十分简单，然而在之后构造素数进行证明时十分常用。
-合数的性质：
-1、若 $n$ 为合数，$d$ 为其大于1的最小因子，则  $d \leq \sqrt{n}$  。（注意到 $\frac{n}{d}$ 为小于 $n$ 的最大因子)
-试除法判定质数算法目标给定任意一个整数$
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-04 15:24" pubdate>
-              2021-04-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93/">技巧总结</a>
-            
-              <a href="/categories/%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/">数学知识</a>
-            
-              <a href="/categories/%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/%E6%95%B0%E8%AE%BA/">数论</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%95%B0%E8%AE%BA/">数论</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-
-
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </span>
-  </nav>
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%88%9D%E4%B8%AD%E7%AB%9E%E8%B5%9B/">初中竞赛</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%B0%8F%E8%93%9D%E6%9C%AC/">小蓝本</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！如有侵权，联系删除。
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/06/29/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%9A%84%E9%9B%86%E5%90%88/">
+                        <span class="hidden-mobile">算法技巧与模板的集合</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.lazyComments('valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#valine",
+          app_id: "CBbK6xMi1DXFA8QpXprctjWh-9Nh9j0Va",
+          app_key: "bE2Pw6O9sPAWPyxc6UgJnRzD",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "https://cbbk6xmi.lc-cn-e1-shared.com",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -502,9 +443,15 @@ AC代码12345678910
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
@@ -546,6 +493,45 @@ AC代码12345678910
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
 
 
 
